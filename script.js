@@ -21,7 +21,7 @@ let time = document.getElementById("time");
 let gust = document.getElementById("gust");
 let pressure = document.getElementById("pressure");
 let imgGifi = document.querySelector(".gifi");
-const gifHolder = document.querySelector('.gif');
+const gifHolder = document.querySelector(".gif");
 let unitCorF = "c";
 let unitKmorM = "kph";
 unitKmorM_.addEventListener("click", () => {
@@ -30,8 +30,9 @@ unitKmorM_.addEventListener("click", () => {
   updateUnitKmorM();
 });
 unitCorF_.addEventListener("click", () => {
-  unitCorF_.textContent = unitCorF == "f" ? "f" : "c";  
-  unitCorF_.textContent =unitCorF_.textContent == "f"?"Fahrenheit":"Celcius"
+  unitCorF_.textContent = unitCorF == "f" ? "f" : "c";
+  unitCorF_.textContent =
+    unitCorF_.textContent == "f" ? "Fahrenheit" : "Celcius";
   console.log(unitCorF);
   updateUnitCorF();
 });
@@ -70,35 +71,38 @@ async function displayDetails() {
     placeName.textContent = `${place}`;
     data = await loadJson();
     let gifObj = await getGifs(data.current.condition.text);
-    gifHolder.textContent=' '
-    imgGifi = new Image()
-    imgGifi.src = gifObj.data.images.original.url;gifHolder.append(imgGifi)
-    document.body.style.backgroundImage = `url(${imgGifi.src})`; 
+    gifHolder.textContent = " ";
+    imgGifi = new Image();
+    imgGifi.src = gifObj.data.images.original.url;
+    gifHolder.append(imgGifi);
+    document.body.style.backgroundImage = `url(${imgGifi.src})`;
     area.innerHTML = `<p>Location :${data.location.name}</p><p>region :${data.location.region} country :${data.location.country}</p>`;
-    updateMoreElements(data);//dynamic updation of temp to cel to fahreheit 
-  } catch (err){
-    alert("perhaps invalid search place");console.log(err)
+    updateMoreElements(data); //dynamic updation of temp to cel to fahreheit
+  } catch (err) {
+    alert("perhaps invalid search place");
+    console.log(err);
   }
 }
-function updateMoreElements(v=data){
-let data=v;
-updateUnitCorF(data);updateUnitKmorM(data);
+function updateMoreElements(v = data) {
+  let data = v;
+  updateUnitCorF(data);
+  updateUnitKmorM(data);
 }
-function updateUnitCorF(v=data){
-  let data = v; 
+function updateUnitCorF(v = data) {
+  let data = v;
   unitCorF = unitCorF == "f" ? "c" : "f";
   let feelslike = data.current[`feelslike_${unitCorF}`];
   feeltemp.textContent = `feels like :${feelslike} ${unitCorF.toUpperCase()}`;
   const temperature = data.current[`temp_${unitCorF}`];
   temp.textContent = `Temperature out there is ${temperature} ${unitCorF.toUpperCase()}`;
 }
- function updateUnitKmorM(v=data){
-  let data = v; 
+function updateUnitKmorM(v = data) {
+  let data = v;
 
   precipitation.textContent = ` ${data.current.precip_in} inches, ${data.current.precip_mm}mm`;
 
-  //wind 
-  unitKmorM = unitKmorM == "mph" ? "kph" : "mph"; 
+  //wind
+  unitKmorM = unitKmorM == "mph" ? "kph" : "mph";
   let wind = data.current[`wind_${unitKmorM}`];
   windSpeed.textContent = `wind speed : ${wind} ${unitKmorM}`;
   windDirection.textContent = ` wind direction:  ${data.current.wind_dir}`;
@@ -115,9 +119,9 @@ function updateUnitCorF(v=data){
   let gust_ = data.current[`gust_${unitKmorM}`];
   gust.textContent = `Gust : ${gust_} ${unitKmorM}`;
   pressure.textContent = `pressure ${data.current.pressure_in} in`;
- }
+}
 function findWeatherDetails() {
   place = input.value;
   displayDetails();
 }
-displayDetails().catch(alert); 
+displayDetails().catch(alert);

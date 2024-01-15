@@ -34,7 +34,8 @@ h1 {
   position: relative;
   height: 60px;
 
-  & span { width: 8ch;
+  & span {
+    width: 8ch;
     position: absolute;
     color: rgba(252, 252, 252, 0.991);
     font-size: 1.5rem;
@@ -49,13 +50,15 @@ h1 {
     top: 1cm;
     right: 6px;
   }
-  & > #time { width: fit-content;
+  & > #time {
+    width: fit-content;
     top: 0.8cm;
     left: 0px;
     background-color: #979090;
   }
 }
-p { padding: 10px;
+p {
+  padding: 10px;
   font-size: 1.3rem;
   font-weight: bolder;
 }
@@ -65,8 +68,15 @@ img.gifi {
   margin: 0;
   padding: 0;
 }
+@media screen and (max-width: 767px) {
+  /* Your mobile styles go here */
+  .container {
+    margin-left: 85px;
+  }
+}
+
 .container {
-  width: max(500px,70vw); 
+  width: max(500px, 70vw);
   background-color: rgba(214, 210, 203, 0.995);
   border: 1px solid grey;
   box-shadow: 3px 7px 10px 7px #979090;
@@ -95,9 +105,9 @@ img.gifi {
   & > p {
     border: 1.3px dashed pink;
     justify-self: center;
-    align-self: center;box-shadow: 0px 4px 8px 1px orangered;
+    align-self: center;
+    box-shadow: 0px 4px 8px 1px orangered;
   }
-
 }
 
 body,
