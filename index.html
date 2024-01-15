@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="normalize.css" />
+    <script defer src="script.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p style="background-color: aqua">
+      Search places :
+      <input value="puducherry" type="text" minlength="3" maxlength="25" />
+      <button onclick="findWeatherDetails()" type="button">See Weather</button>
+    </p>
+    <div class="container">
+      <h1>
+        <div id="place">puducherry</div>
+        <span id="time">tiem</span> <span id="unit">*C/*F</span>
+        <span id="unitkm">kph/mph</span>
+      </h1>
+
+      <div class="gif"><img src="./giphy.gif" class="gifi" alt="" /></div>
+      <p class="area">
+        "name":"Chennai","region":"Tamil Nadu","country":"India",
+      </p>
+      <p class="temp">"temp_c":23.8,"temp_f":74.8,</p>
+      <p class="feeltemp"></p>
+      <p>Precipitation : <span class="precipitation">1% t rain</span></p>
+      <div class="windPressure">
+        <div class="winds">
+          <p class="wind">wind_mph</p>
+          <p id="windDirection">wind_dir</p>
+          <p id="wind_degree">wind_degree</p>
+        </div>
+        <div class="pressure">
+          <p id="pressure">pressure_mb,_in</p>
+          <p id="gust">gust_kph/mph</p>
+        </div>
+      </div>
+      <div class="other">
+        <div class="condition">
+          <p id="conditionTxt">"condition":{"text":"Light rain"</p>
+          <img id="conditionImg" alt="icons" />
+        </div>
+        <div class="stuffs">
+          <p id="vis">vis_km/miles</p>
+          <p id="uv">uv:7.0</p>
+          <p id="humidity">"humidity":48</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style></style>
+
+<script></script>
