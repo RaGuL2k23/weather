@@ -55,6 +55,7 @@ async function getGifs(value) {
   if (value == "clear") {
     value = "good weather";
   }
+  if(value =="sunny"){value="hot very sunny"}
   // else if (value == "cloudy") value ="partly cloudy"
   src = `https://api.giphy.com/v1/gifs/translate?api_key=zPTIhZRX66AcZEA09mMDHZXmNmpHA8mX&s=${value} `;
 
@@ -73,7 +74,15 @@ async function displayDetails() {
     let gifObj = await getGifs(data.current.condition.text);
     gifHolder.textContent = " ";
     imgGifi = new Image();
-    imgGifi.src = gifObj.data.images.original.url;
+    if(gifObj.data.images.original.hash == '20a3352bf4cf5d7d26ef7e8d68780373'
+    ||gifObj.data.images.original.hash == "665c559f2c53aabaaabad8fa5b9546ea" ){
+    
+      imgGifi.src ="https://i.pinimg.com/originals/f3/57/d2/f357d23a6f69a021c8f11bd26bc2202c.gif"
+    }
+    else{
+      imgGifi.src = gifObj.data.images.original.url;
+    }
+   
     gifHolder.append(imgGifi);
     document.body.style.backgroundImage = `url(${imgGifi.src})`;
     area.innerHTML = `<p>Location :${data.location.name}</p><p>region :${data.location.region} country :${data.location.country}</p>`;
