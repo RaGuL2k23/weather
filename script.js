@@ -74,6 +74,8 @@ async function displayDetails() {
     let gifObj = await getGifs(data.current.condition.text);
     gifHolder.textContent = " ";
     imgGifi = new Image();
+    imgGifi.classList.add('gifi');
+    imgGifi.src="./giphy.gif"; 
     if(gifObj.data.images.original.hash == '20a3352bf4cf5d7d26ef7e8d68780373'
     ||gifObj.data.images.original.hash == "665c559f2c53aabaaabad8fa5b9546ea" ){
     
